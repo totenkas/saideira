@@ -81,16 +81,16 @@ function createGlassMaterial() {
     ior: 1.5,                 // Index of refraction (glass has a value of ~1.5)
     transparent: true,        // Make the material transparent
     opacity: 0.6,               // Full opacity (for solid glass)
-    reflectivity: 1,          // High reflectivity for a more glass-like surface
+    reflectivity: 0.8,          // High reflectivity for a more glass-like surface
     envMapIntensity: 1.05,    // Environmental map intensity (reflection)
-    clearcoat: 0.9,           // Clearcoat adds a shiny surface on top
+    clearcoat: 0.7,           // Clearcoat adds a shiny surface on top
     clearcoatRoughness: 0.03, // Clearcoat roughness (low value makes it shinier)
     attenuationColor: new THREE.Color("#ffffff"),
-     attenuationDistance: 6,   // How much the light fades as it passes through the material
+    attenuationDistance: 6,   // How much the light fades as it passes through the material
     side: THREE.DoubleSide,   // For glass, use both sides of the material
     depthWrite: false,        // Prevent writing to depth buffer for transparency
     // reflectivity: 1,          // Glass has high reflectivity
-    refractionRatio: 0.98,    // Refraction for glass (important for realism)
+    refractionRatio: 0.5,    // Refraction for glass (important for realism)
     emissive: new THREE.Color(0x111111), // Darker edges around the glass
     emissiveIntensity: 0.5,  // Increase emissive to darken edges
   });
