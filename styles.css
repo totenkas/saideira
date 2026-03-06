@@ -3,6 +3,14 @@
   --ink: #000000;
 }
 
+@font-face {
+  font-family: "Helvetica LT Light Condensed";
+  src: url("./fonts/HelveticaLTStd-LightCond.otf") format("opentype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -94,11 +102,12 @@ body {
 .menu-card {
   position: relative;
   width: min(94vw, 1150px);
-  border: 5px solid #b8b8b8;
+  min-height: clamp(400px, 40vh, 760px);
+  border: 8px solid #b8b8b8;
   border-radius: 0.6rem;
   padding: clamp(1.2rem, 2vw, 1.9rem);
   color: #f5f5f5;
-  background-color: #1f1d22;
+  background-color: #231E1D;
   background-image:
     radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.14) 1px, transparent 1.2px),
     linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.18));
@@ -109,6 +118,8 @@ body {
   transform-style: preserve-3d;
   transition: transform 220ms ease, box-shadow 220ms ease;
   will-change: transform;
+  font-family: "Helvetica LT Light Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
 }
 
 .menu-card::after {
@@ -128,11 +139,11 @@ body {
 }
 
 .menu-header {
-  font-size: clamp(1.8rem, 4vw, 3.4rem);
+  font-size: clamp(1.4rem, 3vw, 3.4rem);
   color: #f7f7f7;
   text-align: center;
   letter-spacing: 0.04em;
-  margin: 0 0 clamp(1rem, 2.2vw, 1.9rem);
+  margin: 0 0 clamp(1rem, 2.2vw, 4rem);
   text-transform: uppercase;
 }
 
@@ -143,14 +154,15 @@ body {
 }
 
 .menu-col h3 {
+  font-family: "Helvetica LT Light Condensed", sans-serif;
   margin: 0 0 0.85rem;
   color: #efe32a;
   text-transform: uppercase;
   text-decoration: underline;
   text-decoration-color: #f72020;
-  text-decoration-thickness: 0.12em;
+  /* text-decoration-thickness: 0.12em; */
   text-underline-offset: 0.16em;
-  font-size: clamp(1rem, 2vw, 1.55rem);
+  font-size: clamp(0.95rem, 1.7vw, 1.9rem);
 }
 
 .menu-col p {
