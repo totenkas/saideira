@@ -1,0 +1,70 @@
+:root {
+  --bg: #fff204;
+  --ink: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Lion and Hare", "Archivo Black", "Arial Black", "Helvetica Neue", Arial, sans-serif;
+}
+
+.page {
+  min-height: 200vh;
+}
+
+.hero {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  opacity: 1;
+  will-change: opacity;
+}
+
+.hero-title {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(3.2rem, 16vw, 15rem);
+  letter-spacing: 0.02em;
+  line-height: 0.88;
+  text-align: center;
+  z-index: 1;
+  pointer-events: none;
+  text-transform: uppercase;
+  opacity: 0.001;
+}
+
+.webgl {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  z-index: 2;
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+
+.scroll-space {
+  height: 120vh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    opacity: 1 !important;
+  }
+}
