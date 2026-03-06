@@ -77,10 +77,10 @@ function createGlassMaterial() {
     metalness: 0,             // Glass is not metallic
     roughness: 0.03,          // Slight roughness for a smooth surface
     transmission: 1,          // Full transparency (for glass effect)
-    thickness: 0.36,          // Controls how thick the glass is
+    thickness: 0.2,          // Controls how thick the glass is
     ior: 1.5,                 // Index of refraction (glass has a value of ~1.5)
     transparent: true,        // Make the material transparent
-    opacity: 1,               // Full opacity (for solid glass)
+    opacity: 0.6,               // Full opacity (for solid glass)
     reflectivity: 1,          // High reflectivity for a more glass-like surface
     envMapIntensity: 1.05,    // Environmental map intensity (reflection)
     clearcoat: 0.9,           // Clearcoat adds a shiny surface on top
@@ -303,7 +303,7 @@ function updateScrollFade() {
   const heroT = Math.min(window.scrollY / heroFadeDistance, 1);
   const glassT = Math.min(window.scrollY / glassFadeDistance, 1);
 
-  const glassOpacity = 1 - glassT;
+  const glassOpacity = 0.6 - glassT;
   for (const material of glassMaterials) {
     material.opacity = glassOpacity;
     material.needsUpdate = true;
