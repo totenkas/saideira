@@ -11,6 +11,12 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Gluten";
+  src: url("./fonts/Gluten-Light.ttf");
+  font-weight: 200;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -179,6 +185,10 @@ body {
   color: #efe32a;
 }
 
+.menu-col p a {
+  text-decoration: none;
+}
+
 .menu-col p strong {
   color: #f2f2f2;
   font-weight: 500;
@@ -228,11 +238,57 @@ body {
   content: "−";
 }
 
-.reading-item p {
+.reading-section p {
+  font-family: "Archivo";
   margin: 0 0 1.2rem;
   max-width: 65ch;
-  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-size: 16pt;
+  /* font-size: clamp(1.4rem, 2.2vw, 1.2rem); */
   line-height: 1.5;
+  text-align: justify;
+}
+
+.reading-section quote {
+  display: block;
+  font-style: italic;
+  padding-left: 40px;
+}
+
+.guardanapo-cursor {
+  position: fixed;
+  top: -240px;
+  left: 20px;
+  width: min(40vw, 400px);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 9999;
+  transform: translate(-999px, -999px);
+  transition: opacity 120ms ease;
+  /* background-color: red; */
+}
+
+.guardanapo-cursor.is-visible {
+  opacity: 1;
+}
+
+.guardanapo-cursor img {
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.35),
+}
+
+.guardanapo-cursor p {
+  position: absolute;
+  inset: 30% 20% auto;
+  /* margin: 0; */
+  font-family: "Gluten";
+  color: #0E00D4;
+  /* text-align: center; */
+  font-size: clamp(1.2rem, 1.2vw, 0.9rem);
+  line-height: 1.2;
+  white-space: pre-line;
 }
 
 @media (prefers-reduced-motion: reduce) {
