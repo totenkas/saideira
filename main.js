@@ -36,6 +36,7 @@ scene.add(glassGroup);
 glassGroup.position.y = 0.35; // Increase to move up more
 // To hide the glass add the line below:
 // glassGroup.visible = false;
+const glassMaterials = [];
 
 const titleCanvas = document.createElement("canvas");
 const titleContext = titleCanvas.getContext("2d");
@@ -106,6 +107,7 @@ function applyGlassLook(root) {
     const glass = createGlassMaterial();
     obj.material = glass;
     obj.material.needsUpdate = true;
+    glassMaterials.push(glass);
     obj.castShadow = false;
     obj.receiveShadow = false;
   });
@@ -150,14 +152,20 @@ function loadOBJ(url) {
 function createFallbackCup() {
   const cup = new THREE.Group();
   const bodyGeometry = new THREE.CylinderGeometry(0.95, 1.35, 3.4, 24, 1, true);
-  const body = new THREE.Mesh(bodyGeometry, createGlassMaterial());
+  const bodyMat = createGlassMaterial();
+  glassMaterials.push(bodyMat);
+  const body = new THREE.Mesh(bodyGeometry, bodyMat);
   cup.add(body);
 
-  const base = new THREE.Mesh(new THREE.CylinderGeometry(0.82, 0.98, 0.2, 24), createGlassMaterial());
+  const baseMat = createGlassMaterial();
+  glassMaterials.push(baseMat);
+  const base = new THREE.Mesh(new THREE.CylinderGeometry(0.82, 0.98, 0.2, 24), baseMat);
   base.position.y = -1.8;
   cup.add(base);
 
-  const rim = new THREE.Mesh(new THREE.TorusGeometry(0.96, 0.045, 18, 36), createGlassMaterial());
+  const rimMat = createGlassMaterial();
+  glassMaterials.push(rimMat);
+  const rim = new THREE.Mesh(new THREE.TorusGeometry(0.96, 0.045, 18, 36), rimMat);
   rim.rotation.x = Math.PI / 2;
   rim.position.y = 1.71;
   cup.add(rim);
@@ -289,9 +297,20 @@ function layoutTitlePlane() {
 }
 
 function updateScrollFade() {
-  const maxFadeScroll = window.innerHeight * 0.95;
-  const t = Math.min(window.scrollY / maxFadeScroll, 1);
-  hero.style.opacity = String(1 - t);
+  const heroFadeDistance = window.innerHeight * 0.95;
+  const glassFadeDistance = window.innerHeight * 0.45;
+
+  const heroT = Math.min(window.scrollY / heroFadeDistance, 1);
+  const glassT = Math.min(window.scrollY / glassFadeDistance, 1);
+
+  const glassOpacity = 1 - glassT;
+  for (const material of glassMaterials) {
+    material.opacity = glassOpacity;
+    material.needsUpdate = true;
+  }
+  glassGroup.visible = glassOpacity > 0.01;
+
+  hero.style.opacity = String(1 - heroT);
 }
 
 function onResize() {
