@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "Merchant";
+  src: url(./fonts/Merchant\ Copy.ttf);
+}
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: #d7d7d0; */
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.receipt {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  order: 2;
+  position: relative;
+  margin: 0 24px;
+  height: 336px;
+  width: 272px;
+  perspective: 800px;
+  /* --panel-bottom: 126px; */
+}
+
+.receipt-title {
+  font-family: "Merchant";
+  font-size: 2rem;
+  text-align: center;
+}
+
+.panel {
+  position: absolute;
+  width: 100%;
+  padding: 12px;
+  font-family: "Merchant";
+  font-size: 12px;
+  text-align: justify;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+}
+
+.panel1 {
+  top: 0;
+  background-color: #fffcdf;
+  /* transform: rotateZ(-3deg); */
+}
+
+.panel2 {
+  top: 78px;
+  background-color: #f9f2c0;
+   /* transform: rotateZ(3deg); */
+  /* transform-style: preserve-3d;
+  transform-origin: bottom; */
+  transition: transform 600ms cubic-bezier(.4,.2,.2,1);
+}
+
+.panel3 {
+  top: 78px;
+  background-color: #fffcdf;
+    transition: transform 600ms cubic-bezier(.4,.2,.2,1);
+}
+
+.receipt:hover .panel2 {
+  /* transform: rotateX(-180deg); */
+  transform: translate(0, 410px);
+}
+
+.receipt:hover .panel3 {
+  transform: translate(0, 736px);
+}
