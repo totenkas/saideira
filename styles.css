@@ -394,28 +394,35 @@ body {
 }
 
 .reading-page-layout {
+  --page-margin: 40px;
+  --page-padding: 80px;
+  --page-gap: 40px;
   width: auto;
-  margin: 0 40px;
-  padding: 0 80px;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 40px;
-  align-items: start;
+  margin: 0 var(--page-margin);
+  padding: 0 var(--page-padding);
+  position: relative;
 }
 
 .reading-image-section {
-  width: 100%;
-  position: sticky;
-  top: 50vh;
+  width: calc((100vw - (2 * var(--page-margin)) - (2 * var(--page-padding)) - var(--page-gap)) / 2);
+  position: fixed;
+  top: 50%;
+  right: calc(var(--page-margin) + var(--page-padding));
   transform: translateY(-50%);
   display: flex;
   align-items: center;
+  justify-content: center;
+  max-height: 100vh;
 }
 
 .reading-image {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.reading-section {
+  width: calc((100vw - (2 * var(--page-margin)) - (2 * var(--page-padding)) - var(--page-gap)) / 2);
 }
 
 .reading-title {
@@ -537,9 +544,9 @@ body {
   }
 
   .reading-page-layout {
-    margin: 0 20px;
-    padding: 0 24px;
-    grid-template-columns: 1fr;
+    --page-margin: 20px;
+    --page-padding: 24px;
+    --page-gap: 24px;
   }
 
   .reading-section,
@@ -547,8 +554,13 @@ body {
     padding-top: 6vh;
   }
 
+  .reading-section {
+    width: 100%;
+  }
+
   .reading-image-section {
     position: static;
+    width: 100%;
     transform: none;
   }
 }
