@@ -270,7 +270,7 @@ body {
   padding: 1rem 0.75rem 1rem 0.95rem;
   overflow: hidden;
   color: #151515;
-  background: #dad3b9;
+  background: #f3e7b8;
   border: 0;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
   font-family: "Courier New", Courier, monospace;
@@ -389,9 +389,129 @@ body {
 
 .reading-section {
   min-height: 100vh;
-  padding: 10vh 4vw 14vh;
-  width: min(92vw, 1100px);
-  /* margin: 0 auto; */
+  padding: 10vh 0 14vh;
+  width: 100%;
+}
+
+.entrada-page-layout {
+  width: min(100vw, 94vw);
+  margin: 0 40px;
+  padding: 0 4vw;
+  display: flex;
+  /* grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.65fr); */
+  /* gap: clamp(8rem, 8vw, 10rem); */
+  align-items: start;
+}
+
+.entrada-frame-stage {
+  width: 100%;
+  padding: 22vh 0 14vh;
+  /* display: flex; */
+  /* justify-content: flex-end; */
+}
+
+.entrada-frame-stage img {
+  width: 100%;
+}
+
+.entrada-frame-column {
+  position: relative;
+  padding-top: 5.5rem;
+  width: 100%;
+}
+
+.entrada-frame-stack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24rem;
+}
+
+.entrada-frame-card {
+  width: 100%;
+}
+
+.entrada-frame-card--end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.entrada-frame-card--start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.entrada-frame-vertical {
+  display: inline-block;
+  width: auto;
+  max-width: min(100%, 420px);
+  padding: 0.9rem;
+  background: linear-gradient(135deg, #f38b24 0%, #c95a07 100%);
+  box-shadow:
+    0 18px 28px rgba(0, 0, 0, 0.18),
+    inset 0 0 0 2px rgba(255, 215, 150, 0.25);
+  /* transform: rotate(3deg); */
+}
+
+.entrada-frame-horizontal {
+  display: block;
+  width: 100%;
+  max-width: none;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, #f38b24 0%, #c95a07 100%);
+  box-shadow:
+    0 18px 28px rgba(0, 0, 0, 0.18),
+    inset 0 0 0 2px rgba(255, 215, 150, 0.25);
+  /* transform: rotate(3deg); */
+}
+
+.entrada-frame-horizontal .entrada-frame__mat {
+  display: block;
+  width: 100%;
+}
+
+.entrada-frame-horizontal .entrada-frame__placeholder {
+  width: 100%;
+  aspect-ratio: 5 / 3;
+}
+
+.entrada-frame__mat {
+  display: inline-block;
+  max-width: 100%;
+  padding: 1rem;
+  background: #f6ddb1;
+  border: 1px solid rgba(92, 53, 8, 0.28);
+}
+
+.entrada-frame__image {
+  display: block;
+  max-width: min(100%, 360px);
+  width: auto;
+  height: auto;
+}
+
+.entrada-frame__mat > img {
+  display: block;
+  max-width: min(100%, 360px);
+  width: 100%;
+  height: auto;
+}
+
+.entrada-frame-horizontal .entrada-frame__mat > img,
+.entrada-frame-horizontal .entrada-frame__image {
+  max-width: none;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.entrada-frame__placeholder {
+  width: min(100%, 320px);
+  aspect-ratio: 4 / 5;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(0, 0, 0, 0.04)),
+    #d8c08f;
+  border: 1px dashed rgba(92, 53, 8, 0.36);
 }
 
 .reading-title {
@@ -510,6 +630,29 @@ body {
 @media (max-width: 960px) {
   .menu-grid {
     grid-template-columns: 1fr;
+  }
+
+  .entrada-page-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .reading-section,
+  .entrada-frame-stage {
+    padding-top: 6vh;
+  }
+
+  .entrada-frame-column {
+    padding-top: 4.5rem;
+    max-width: 320px;
+  }
+
+  .entrada-frame-stage {
+    justify-content: center;
+  }
+
+  .entrada-frame-card--end,
+  .entrada-frame-card--start {
+    justify-content: center;
   }
 }
 
