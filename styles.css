@@ -17,6 +17,11 @@
   font-weight: 200;
 }
 
+@font-face {
+  font-family: "Merchant";
+  src: url("./fonts/Merchant\ Copy.ttf");
+}
+
 * {
   box-sizing: border-box;
 }
@@ -243,6 +248,115 @@ body {
     filter 760ms ease;
 }
 
+.porta-conta-flap {
+  z-index: 3;
+  opacity: 0;
+  transform-origin: left center;
+  transform: rotateY(14deg) rotateZ(-2deg) scale(1) translateX(1.5%) translateY(1.5%);
+  filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.16));
+  transition:
+    transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 60ms linear 0ms,
+    filter 760ms ease;
+  pointer-events: none;
+}
+
+.receipt {
+  position: absolute;
+  top: 10.5%;
+  left: 53.5%;
+  width: 29%;
+  height: 72%;
+  padding: 1rem 0.75rem 1rem 0.95rem;
+  overflow: hidden;
+  color: #151515;
+  background: #dad3b9;
+  border: 0;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  font-family: "Courier New", Courier, monospace;
+  font-size: clamp(0.24rem, 0.47vw, 0.43rem);
+  line-height: 1.45;
+  text-align: left;
+  opacity: 0;
+  z-index: 2;
+  transform-origin: left center;
+  transform: rotateY(14deg) rotateZ(-2deg) translateX(4%) translateY(-11%) scale(0.96);
+  transition:
+    transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 120ms linear 520ms;
+  appearance: none;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.receipt-title {
+  margin-bottom: 0.85rem;
+  font-size: clamp(0.45rem, 0.9vw, 0.62rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.receipt-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+}
+
+.receipt-modal[hidden] {
+  display: none;
+}
+
+.receipt-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.46);
+  backdrop-filter: blur(3px);
+}
+
+.receipt-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(88vw, 520px);
+  max-height: 88vh;
+}
+
+.receipt-modal__paper {
+  max-height: 88vh;
+  overflow: auto;
+  padding: 3rem 2.25rem 3rem 2.75rem;
+
+  /* base paper color */
+  background-color: #f3e7b8;
+  background-blend-mode: multiply;
+
+  /* texture overlay */
+  background-image: url('./assets/paper-texture.jpg');
+  background-repeat: repeat;
+  background-size: cover; /* stretch to fill the paper */
+  background-size: auto;
+  background-attachment: local;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.receipt-modal__paper::-webkit-scrollbar {
+  display: none;
+}
+
+.receipt-modal__content {
+  color: #151515;
+  font-family: "Courier New", Courier, monospace;
+  font-size: clamp(0.9rem, 1.05vw, 0.98rem);
+  line-height: 1.6;
+}
+
+.receipt-modal__content .receipt-title {
+  /* margin-bottom: 1.4rem; */
+  font-size: clamp(1.5rem, 1.8vw, 1.75rem);
+}
+
 .porta-conta-book:hover .porta-conta-closed {
   transform: rotateY(-108deg) rotateZ(-3deg) translateX(-3%) translateZ(0);
   opacity: 0.18;
@@ -253,6 +367,24 @@ body {
   opacity: 1;
   transform: rotateY(0deg) rotateZ(0deg) scale(1) translateX(0) translateY(0);
   filter: drop-shadow(0 28px 42px rgba(0, 0, 0, 0.24));
+}
+
+.porta-conta-book:hover .porta-conta-flap {
+  opacity: 1;
+  transform: rotateY(0deg) rotateZ(0deg) scale(1) translateX(0) translateY(0);
+  filter: drop-shadow(0 16px 20px rgba(0, 0, 0, 0.18));
+  transition:
+    transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 40ms linear 0ms,
+    filter 760ms ease;
+}
+
+.porta-conta-book:hover .receipt {
+  opacity: 1;
+  transform: rotateY(0deg) rotateZ(0deg) translateX(0) translateY(0.8%) scale(1);
+  transition:
+    transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 140ms linear 520ms;
 }
 
 .reading-section {
@@ -368,7 +500,9 @@ body {
   }
 
   .porta-conta-closed,
-  .porta-conta-open {
+  .porta-conta-open,
+  .porta-conta-flap,
+  .receipt {
     transition: none;
   }
 }
@@ -388,5 +522,15 @@ body {
   .porta-conta-open {
     opacity: 1;
     transform: rotateY(0deg) rotateZ(0deg) scale(1) translateX(0) translateY(0);
+  }
+
+  .porta-conta-flap {
+    opacity: 1;
+    transform: rotateY(0deg) rotateZ(0deg) scale(1) translateX(0) translateY(0);
+  }
+
+  .receipt {
+    opacity: 1;
+    transform: none;
   }
 }
