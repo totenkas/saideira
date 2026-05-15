@@ -510,6 +510,10 @@ body {
   width: 100%;
   height: auto;
   display: block;
+  transform: rotate(0deg);
+  transform-origin: center center;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 220ms ease;
 }
 
 .reading-image-vertical {
@@ -517,6 +521,26 @@ body {
   height: 100%;
   max-height: 720px;
   display: block;
+  transform: rotate(0deg);
+  transform-origin: center center;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 220ms ease;
+}
+
+.page-cafe .reading-image,
+.page-cafe .reading-image-vertical,
+.page-sobremesa .reading-image,
+.page-sobremesa .reading-image-vertical {
+  box-shadow: none;
+}
+
+.reading-image-section:hover .reading-image,
+.reading-image-section:hover .reading-image-vertical,
+.reading-image:hover,
+.reading-image-vertical:hover,
+.reading-image-section a:hover .reading-image,
+.reading-image-section a:hover .reading-image-vertical {
+  transform: rotate(var(--reading-image-tilt, 0deg));
 }
 
 .reading-section {
