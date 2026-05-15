@@ -13,13 +13,26 @@
 
 @font-face {
   font-family: "Gluten";
-  src: url("./fonts/Gluten-Light.ttf");
+  src: url("./fonts/Gluten-Light.ttf") format("truetype");
   font-weight: 200;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Merchant";
-  src: url("./fonts/Merchant\ Copy.ttf");
+  src: url("./fonts/Merchant%20Copy.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lion and Hare";
+  src: url("./fonts/LionandHare-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 * {
