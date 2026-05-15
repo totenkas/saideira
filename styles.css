@@ -298,10 +298,9 @@ body {
   opacity: 0;
   z-index: 2;
   transform-origin: top center;
-  transform: translate3d(4%, -11%, 0) rotateZ(-2deg) scale(0.96);
+  transform: translate3d(0, 0.8%, 0) rotateZ(0deg) scale(1);
   transition:
-    transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    opacity 120ms linear 520ms;
+    opacity 120ms linear 0ms;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform-style: flat;
@@ -402,9 +401,7 @@ body {
 .porta-conta-book:hover .receipt {
   opacity: 1;
   transform: translate3d(0, 0.8%, 0) rotateZ(0deg) scale(1);
-  transition:
-    transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    opacity 140ms linear 520ms;
+  transition: opacity 140ms linear 520ms;
 }
 
 .reading-section {
