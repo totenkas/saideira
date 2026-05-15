@@ -229,6 +229,7 @@ body {
   width: min(72vw, 623px);
   aspect-ratio: 623 / 558;
   margin: 0;
+  isolation: isolate;
   transform-style: preserve-3d;
 }
 
@@ -240,6 +241,7 @@ body {
   object-fit: contain;
   transform-style: preserve-3d;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .porta-conta-closed {
@@ -295,13 +297,15 @@ body {
   text-align: left;
   opacity: 0;
   z-index: 2;
-  transform-origin: left center;
-  transform: rotateY(14deg) rotateZ(-2deg) translateX(4%) translateY(-11%) scale(0.96);
+  transform-origin: top center;
+  transform: translate3d(4%, -11%, 0) rotateZ(-2deg) scale(0.96);
   transition:
     transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1),
     opacity 120ms linear 520ms;
-  appearance: none;
-  cursor: pointer;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: flat;
+  will-change: transform, opacity;
   pointer-events: none;
 }
 
@@ -397,7 +401,7 @@ body {
 
 .porta-conta-book:hover .receipt {
   opacity: 1;
-  transform: rotateY(0deg) rotateZ(0deg) translateX(0) translateY(0.8%) scale(1);
+  transform: translate3d(0, 0.8%, 0) rotateZ(0deg) scale(1);
   transition:
     transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1),
     opacity 140ms linear 520ms;

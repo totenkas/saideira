@@ -1,16 +1,17 @@
 (() => {
-  const portaConta = document.querySelector(".receipt-stage")
+  const portaConta = document.querySelector(".receipt-stage");
   const receipt = document.querySelector(".receipt");
   const modal = document.getElementById("receipt-modal");
   const modalContent = document.getElementById("receipt-modal-content");
+  const receiptTemplate = document.getElementById("receipt-template");
   const closeTargets = document.querySelectorAll("[data-receipt-close]");
 
-  if (!receipt || !modal || !modalContent) {
+  if (!receipt || !modal || !modalContent || !receiptTemplate) {
     return;
   }
 
   function openModal() {
-    modalContent.innerHTML = receipt.innerHTML;
+    modalContent.innerHTML = receiptTemplate.innerHTML;
     const title = modalContent.querySelector(".receipt-title");
     if (title) {
       title.id = "receipt-modal-title";
