@@ -22,9 +22,25 @@
       <section class="scroll-space" aria-hidden="true"></section>
 
       <section class="image-section" id="garrincha">
-        <figure class="feature-image-wrap">
-          <img class="feature-image" src="./assets/images/Garrincha.jpg" alt="Garrincha" />
-        </figure>
+        <div class="feature-card-stage">
+          <figure class="feature-flip-card" data-flip-card>
+            <div class="feature-card-face feature-card-front" aria-hidden="true">
+              <div class="feature-paper">
+                <div class="feature-paper-copy">
+                  <p class="feature-paper-quote">
+                    Tire da cidade o impacto civilizatório dos seus bares e teremos um Garrincha sem a bola.
+                  </p>
+                  <p class="feature-paper-credit">
+                    Luis Antonio Simas, <em>O corpo encantado das ruas</em>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="feature-card-face feature-card-back">
+              <img class="feature-image" src="./assets/images/Garrincha.jpg" alt="Garrincha" />
+            </div>
+          </figure>
+        </div>
       </section>
 
       <section class="blackboard-stage" id="menu-board" aria-label="Interactive menu board">
@@ -200,6 +216,7 @@
 
     <script type="module" src="./main.js"></script>
     <script src="./menu-card.js"></script>
+    <script src="./garrincha-flip.js"></script>
     <script src="./receipt-modal.js"></script>
   </body>
 </html>
